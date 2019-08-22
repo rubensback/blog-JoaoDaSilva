@@ -1,0 +1,93 @@
+legend,label[for="mensagem"]{
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+label[for]{
+    display: block;
+}
+
+input[type="text"],input [type="email"],textarea{
+    width: 100%;
+    height: 1,25;
+    border: 1px solid #DCDCDC;
+    padding: .5em;
+    font-family: inherit;
+}
+
+fieldset > fieldset{
+    display: inline;
+}
+
+.assunto input,.assunto label{
+    display: inline;
+}
+
+input[name="outro"]{
+    width: auto;
+}
+
+input:focus,textarea:focus{
+    background-color: #FFD;
+}
+
+input:invalid{
+    box-shadow: 0 0 3px red;
+}
+
+button{
+    background-color: #3C1D3D;
+    color: white;
+    font-family: "Crimson Text", "Times New Roman", serif;
+    font-size: 130%;
+    border: none;
+    padding: .3em;
+    
+    margin-left: auto;
+    margin-top: 1em;
+    display: block;
+}
+
+button:hover,button:focus{
+    background-color: #8C1D3D;
+}
+
+/*para fazer aparecer a caixa somente com a seleção do "outro", foi usado o ~ para validar o primeiro(id=outro) e alterar o segundo(name="outro")*/
+input[name="outro"]{
+    display: none;
+}
+input[id="outro"]:checked ~input{
+    display: inline;
+}
+
+.com-icone::after {
+    content: ''; /* não podemos esquecer do content! */
+    width: 1.5em;
+    height: 1.5em;
+    background-color: #8C1D3D;
+    background-size: 50% 50%; /* para a imagem ter 1em x 1em */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.com-icone{
+    position: relative;
+}
+
+.com-icone + input {
+    position: relative;
+    left: 2em;
+    width: calc(100% - 2em);
+}
+
+.com-icone[for="nome"]::after {
+    background-image: url(../imagens/usuario.png);
+}
+
+.com-icone[for="email"]::after {
+    background-image: url(../imagens/email.png);
+}
+
